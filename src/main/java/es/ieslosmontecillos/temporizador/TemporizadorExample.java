@@ -9,10 +9,11 @@ import javafx.stage.Stage;
 /**
  * Esta clase extiende de Application y es la encargada de lanzar la escena
  */
-public class TemporizadorExample extends Application{
+public class TemporizadorExample extends Application {
     @Override
     public void start(Stage stage) throws Exception {
 
+        //Crea una instancia de Temporizador con un tiempo
         Temporizador temp = new Temporizador(5);
 
         VBox root = new VBox();
@@ -25,6 +26,7 @@ public class TemporizadorExample extends Application{
         stage.show();
 
         root.getChildren().add(temp);
+
         temp.setOnFinished(e -> {
             Label lbl = new Label("Se acabo el tiempo!!");
             root.getChildren().add(lbl);
@@ -33,8 +35,8 @@ public class TemporizadorExample extends Application{
     }
 
     /**
-     *
-     * @param args
+     *Metodo que ejecuta la aplicacion
+     * @param args argumentos de la aplicacion
      */
     public static void main(String[] args) {
         launch(args);

@@ -26,20 +26,20 @@ public final class Temporizador extends VBox{
     private Integer time;
 
     /**
-     * Contructor al que le entra un valor de tipo Integer llamado time
-     * Utiliza al metodo setTime() para cambiar el valor del tiempo,
-     * ha este metodo le pasaremos el valor que ha recibido el constructor
+     * Contructor de la clase Temporizador al que le entra un valor de tipo Integer llamado time.
      * @param time tipo Integer
      */
     //Constructor
-    public Temporizador(Integer time){
+    public Temporizador(Integer time)
+    {
         this.setTime(time);
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Temporizador.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
-        try {
+        try
+        {
             fxmlLoader.load();
         } catch (IOException exception) {
             throw new RuntimeException(exception);
@@ -95,7 +95,8 @@ public final class Temporizador extends VBox{
             = new SimpleObjectProperty<EventHandler<ActionEvent>>();
 
     /**
-     * Metodo para recuperar el objeto privado de tipo object property action event
+     * Metodo getter que devuelve la propiedad propertyOnFinished creada anteriormente.
+     * Al ser de tipo ObjectProperty, proporciona la capacidad de observar cambios en el objeto almacenado.
      * @return ObjectProperty
      */
     //Creamos un metodo para recuperar ese objeto privado de tipo object property action event
@@ -103,11 +104,20 @@ public final class Temporizador extends VBox{
         return propertyOnFinished;
     }
 
+
+    /**
+     * Metodo setter que permite establecer el manejador de eventos proporcionado en la propiedad propertyOnFinished
+     * @param handler manejador de eventos que se usara
+     */
     //Creamos un setter de esta propiedad
     public final void setOnFinished(EventHandler<ActionEvent> handler) {
         propertyOnFinished.set(handler);
     }
 
+    /**
+     * Metodo getter que devuelve el manejador de eventos actualmente establecido en la propiedad propertyOnFinished.
+     * @return manejador de eventos actualmente establecido
+     */
     //Creamos un getter
     public final EventHandler<ActionEvent> getOnFinished() {
         return propertyOnFinished.get();
